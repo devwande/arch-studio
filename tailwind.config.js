@@ -9,12 +9,13 @@ export default {
       xl: "1280px",
       "2xl": "1536px",
     },
-
     extend: {
       fontFamily: {
         spartan: ["League Spartan"],
       },
-
+      fontSize:{
+        '10xl': ['250px','200px']
+      },
       colors: {
         gray: "#7D828F",
         ash: "#C8CCD8",
@@ -23,6 +24,7 @@ export default {
       },
       letterSpacing: {
         "extra-wide": ".9em",
+        tightest: '-3px',
       },
     },
     plugins: [],

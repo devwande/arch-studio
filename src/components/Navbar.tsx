@@ -66,11 +66,11 @@ const Navbar: React.FC = () => {
 
       <div className="hidden md:flex md:flex-col md:items-start">
         <div className="flex justify-between w-full px-2 pt-12">
-          <img src={arch} alt="arch image" className="pl-32 " />
-          <div className="hidden md:flex md:space-x-16 md:mr-28">
-            <button className="text-gray font-spartan text-lg font-bold">Portfolio</button>
-            <button className="text-gray font-spartan text-lg font-bold">About Us</button>
-            <button className="text-gray font-spartan text-lg font-bold">Contact</button>
+          <img src={arch} alt="arch image" className="pl-24 " />
+          <div className="hidden md:flex md:space-x-16 md:mr-36 text-gray font-spartan text-lg font-bold">
+            <button>Portfolio</button>
+            <button className=" whitespace-nowrap">About Us</button>
+            <button>Contact</button>
           </div>
         </div>
 

@@ -1,12 +1,10 @@
 import { useInView, motion } from "framer-motion";
 import React from "react";
 
-
-  
-  const itemVariants = {
-    hidden: { x: 100, opacity: 0 },
-    visible: { x: 0, opacity: 1, transition: { duration: 1 } },
-  };
+const itemVariants = {
+  hidden: { x: 100, opacity: 0 },
+  visible: { x: 0, opacity: 1, transition: { duration: 1 } },
+};
 
 const AnimatedProjects = ({ src, alt, projectTitle }: any) => {
   const ref = React.useRef(null);
@@ -18,8 +16,7 @@ const AnimatedProjects = ({ src, alt, projectTitle }: any) => {
         ref={ref}
         className="relative"
         initial="hidden"
-        // animate={isInView ? "visible" : {}}
-        animate="visible"
+        animate={isInView ? "visible" : {}}
         variants={itemVariants}
       >
         <img src={src} alt={alt} className="w-screen" />

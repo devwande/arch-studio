@@ -13,10 +13,15 @@ import dsDesktop from "../assets/dsDesktop.png";
 import towerDesktop from "../assets/towerDesktop.png";
 import prototypeDesktop from "../assets/prototypeDesktop.png";
 import pm from "../assets/pm.svg";
-import Navigation from "../components/Navigation";
+
 import { motion, useInView } from "framer-motion";
 import React from "react";
 import AnimatedProjects from "../components/AnimatedProjects";
+
+import ProjectPages from "../components/ProjectPages";
+import seraph from "../assets/seraph.png";
+import federal from "../assets/federal.png";
+import trinity from "../assets/trinity.png";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -99,62 +104,37 @@ const Landing = () => {
             alt="paramour-image"
             className="w-auto block lg:hidden h-auto pt-12"
           />
-          <div className="px-14 bg-cover bg-center">
-            <img
-              src={paramourDesktop}
-              alt="paramour-desktop"
-              className=" pt-12 hidden lg:h-[calc(100vh-)] object-cover lg:block"
-            />
-            <Navigation />
-          </div>
 
-          <motion.div className="absolute inset-8 flex flex-col justify-center md:pl-8 lg:pl-48 lg:w-[650px]">
-            <motion.h1
-              animate={{ y: [-150, -20] }}
-              transition={{
-                type: "spring",
-                bounce: 0.05,
-                duration: 2,
-                delay: 0.1,
-                ease: [0.5, 0.71, 1, 1.5],
-              }}
-              className="text-white text-8xl font-spartan font-bold md:pt-16"
-            >
-              Project Paramour
-            </motion.h1>
-            <motion.h1
-              animate={{ y: [-150, -20] }}
-              transition={{
-                type: "spring",
-                bounce: 0.05,
-                duration: 2,
-                delay: 0.1,
-                ease: [0.5, 0.71, 1, 1.5],
-              }}
-              className="text-white font-spartan font-medium text-lg"
-            >
-              Project made for an art museum near Southwest London. Project
-              Paramour is a statement of bold, modern architecture.
-            </motion.h1>
-            <div>
-              <motion.button
-                whileHover={{
-                  scale: 1.1,
-                }}
-                className="border flex font-spartan mt-12 font-bold border-black bg-black text-white px-7 py-5 hover:bg-gray hover:border-gray"
-              >
-                See our Portfolio {""}
-                <img
-                  src={arrow}
-                  alt="arrow button"
-                  className="ml-5 transition-transform group-hover:-rotate-45 group-active:-rotate-12"
-                />
-              </motion.button>
-            </div>
-          </motion.div>
+          <ProjectPages
+            src={paramourDesktop}
+            alt="paramour"
+            title="Project Paramour"
+            content="Project made for an art museum near Southwest London. Project
+            i Paramour is a statement of bold, modern architecture."
+          />
+
+          <ProjectPages
+            src={seraph}
+            alt="seraph"
+            title="Seraph Station"
+            content="The Seraph Station project challenged us to design a unique station that would transport people through time. The result is a fresh and futuristic model inspired by space stations."
+          />
+
+          <ProjectPages
+            src={federal}
+            alt="federal"
+            title="Federal II Tower"
+            content="A sequel theme project for a tower originally built in the 1800s. We achieved this with a striking look of brutal minimalism with modern touches."
+          />
+
+          <ProjectPages
+            src={trinity}
+            alt="trinity"
+            title="Trinity Bank Tower"
+            content="Trinity Bank challenged us to make a concept for a 84 story building located in the middle of a city with a high earthquake frequency. For this project we used curves to blend design and stability to meet our objectives."
+          />
         </div>
       </div>
-
       <div className="container pt-10 md:pt-32 px-5 md:px-24 lg:pl-48 font-normal text-lg font-spartan relative ">
         <motion.p
           ref={ref}
@@ -323,3 +303,53 @@ const Landing = () => {
 };
 
 export default Landing;
+
+{
+  /* <div className="relative">
+          <img
+            src={pm}
+            alt="paramour-image"
+            className="w-auto block lg:hidden h-auto pt-12"
+          />
+          <div className="px-14 bg-cover bg-center">
+            <img
+              src={paramourDesktop}
+              alt="paramour-desktop"
+              className=" pt-12 hidden lg:h-[calc(100vh-)] object-cover lg:block"
+            />
+            <Navigation />
+          </div>
+
+          <motion.div className="absolute inset-8 flex flex-col justify-center md:pl-8 lg:pl-48 lg:w-[650px]">
+            <motion.h1
+              animate={{ y: [-150, -20] }}
+              transition={{
+                type: "spring",
+                bounce: 0.05,
+                duration: 2,
+                delay: 0.1,
+                ease: [0.5, 0.71, 1, 1.5],
+              }}
+              className="text-white text-8xl font-spartan font-bold md:pt-16"
+            >
+              Project Paramour
+            </motion.h1>
+            <motion.h1
+              animate={{ y: [-150, -20] }}
+              transition={{
+                type: "spring",
+                bounce: 0.05,
+                duration: 2,
+                delay: 0.1,
+                ease: [0.5, 0.71, 1, 1.5],
+              }}
+              className="text-white font-spartan font-medium text-lg"
+            >
+              Project made for an art museum near Southwest London. Project
+              Paramour is a statement of bold, modern architecture.
+            </motion.h1>
+            <PortfolioButton />
+          </motion.div>
+          
+      </div> */
+}

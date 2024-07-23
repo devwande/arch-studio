@@ -98,40 +98,12 @@ const Landing = () => {
             ))}
           </motion.div>
         </div>
+
         <div className="relative">
           <img
             src={pm}
             alt="paramour-image"
             className="w-auto block lg:hidden h-auto pt-12"
-          />
-
-          <ProjectPages
-            src={paramourDesktop}
-            alt="paramour"
-            title="Project Paramour"
-            content="Project made for an art museum near Southwest London. Project
-            i Paramour is a statement of bold, modern architecture."
-          />
-
-          <ProjectPages
-            src={seraph}
-            alt="seraph"
-            title="Seraph Station"
-            content="The Seraph Station project challenged us to design a unique station that would transport people through time. The result is a fresh and futuristic model inspired by space stations."
-          />
-
-          <ProjectPages
-            src={federal}
-            alt="federal"
-            title="Federal II Tower"
-            content="A sequel theme project for a tower originally built in the 1800s. We achieved this with a striking look of brutal minimalism with modern touches."
-          />
-
-          <ProjectPages
-            src={trinity}
-            alt="trinity"
-            title="Trinity Bank Tower"
-            content="Trinity Bank challenged us to make a concept for a 84 story building located in the middle of a city with a high earthquake frequency. For this project we used curves to blend design and stability to meet our objectives."
           />
         </div>
       </div>

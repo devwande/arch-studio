@@ -7,8 +7,7 @@ const ParamourPage = () => {
       src={paramourDesktop}
       alt="paramour"
       title="Project Paramour"
-      content="Project made for an art museum near Southwest London. Project
-            i Paramour is a statement of bold, modern architecture."
+      content="Project made for an art museum near Southwest London. Project Paramour is a statement of bold, modern architecture."
     />
   );
 };

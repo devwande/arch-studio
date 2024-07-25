@@ -1,11 +1,15 @@
 import { useEffect, useRef } from "react";
 import arch from "../assets/arch.svg";
 import { motion, useCycle, AnimatePresence, MotionConfig } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import NavLink from "./NavLink";
 
 const Navbar: React.FC = () => {
   const [mobileNav, toggleMobileNav] = useCycle(false, true);
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,6 +40,7 @@ const Navbar: React.FC = () => {
 
   return (
     <>
+      {/* MOBILE NAVBAR */}
       <div className="flex justify-between my-8 mx-8 relative md:hidden">
         <img src={arch} alt="arch" />
         <nav className=" ">
@@ -101,7 +106,7 @@ const Navbar: React.FC = () => {
               animate="open"
               exit="closed"
               ref={menuRef}
-              className="md:hidden space-y-12 h-1/3 flex flex-col fixed top-26 right-0 w-5/6 bg-lightash py-10 z-10"
+              className="md:hidden space-y-20 h-1/2 flex flex-col fixed top-26 right-0 w-5/6 bg-lightash py-10 z-10"
             >
               <motion.button
                 variants={{
@@ -115,6 +120,7 @@ const Navbar: React.FC = () => {
                   },
                 }}
                 className="flex justify-start pl-8 text-3xl font-spartan font-bold"
+                onClick={() => navigate("/portfolio")}
               >
                 Portfolio
               </motion.button>
@@ -130,6 +136,7 @@ const Navbar: React.FC = () => {
                   },
                 }}
                 className="flex justify-start pl-8 text-3xl font-spartan font-bold"
+                onClick={() => navigate("/about")}
               >
                 About Us
               </motion.button>
@@ -145,6 +152,7 @@ const Navbar: React.FC = () => {
                   },
                 }}
                 className="flex justify-start pl-8 text-3xl font-spartan font-bold"
+                onClick={() => navigate("/contact")}
               >
                 Contact
               </motion.button>
@@ -155,48 +163,23 @@ const Navbar: React.FC = () => {
 
       <motion.div className="hidden md:flex md:flex-col md:items-start">
         <div className="flex justify-between w-full px-2 pt-12">
-          <motion.img animate={{ x: [100, 1] }}
-             transition={{
-               type: "spring",
-               bounce: 0.05,
-               duration: 2,
-               delay: 0.1,
-               ease: [0.5, 0.71, 1, 1.5],
-             }} src={arch} alt="arch image" className="pl-24 lg:pl-44" />
+          <motion.img
+            animate={{ x: [100, 1] }}
+            transition={{
+              type: "spring",
+              bounce: 0.05,
+              duration: 2,
+              delay: 0.1,
+              ease: [0.5, 0.71, 1, 1.5],
+            }}
+            src={arch}
+            alt="arch image"
+            className="pl-24 lg:pl-44"
+          />
           <div className="hidden md:flex md:space-x-16 md:mr-36 lg:mr-[730px] text-gray font-spartan text-lg font-bold">
-            <motion.button
-             animate={{ x: [100, 1] }}
-             transition={{
-               type: "spring",
-               bounce: 0.05,
-               duration: 2,
-               delay: 0.1,
-               ease: [0.5, 0.71, 1, 1.5],
-             }}
-              className="lg:hover:text-black"
-            >
-              Portfolio
-            </motion.button>
-            <motion.button animate={{ x: [100, 1] }}
-             transition={{
-               type: "spring",
-               bounce: 0.05,
-               duration: 2,
-               delay: 0.1,
-               ease: [0.5, 0.71, 1, 1.5],
-             }} className="lg:hover:text-black whitespace-nowrap">
-              About Us
-            </motion.button>
-            <motion.button animate={{ x: [100, 1] }}
-             transition={{
-               type: "spring",
-               bounce: 0.05,
-               duration: 2,
-               delay: 0.1,
-               ease: [0.5, 0.71, 1, 1.5],
-             }} className="lg:hover:text-black">
-              Contact
-            </motion.button>
+            <NavLink to="/portfolio">Portfolio</NavLink>
+            <NavLink to="/about">About Us</NavLink>
+            <NavLink to="/contact">Contact</NavLink>
           </div>
         </div>
       </motion.div>

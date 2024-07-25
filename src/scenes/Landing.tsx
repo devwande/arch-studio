@@ -1,6 +1,5 @@
 import Navbar from "../components/Navbar";
 import paramour from "../assets/paramour.png";
-import paramourDesktop from "../assets/paramourDesktop.png";
 import arrow from "../assets/arrow.svg";
 import st from "../assets/st.png";
 import desol from "../assets/de-sol.png";
@@ -13,15 +12,15 @@ import dsDesktop from "../assets/dsDesktop.png";
 import towerDesktop from "../assets/towerDesktop.png";
 import prototypeDesktop from "../assets/prototypeDesktop.png";
 import pm from "../assets/pm.svg";
-
-import { motion, useInView } from "framer-motion";
+import { useState } from "react";
 import React from "react";
+import { motion, useInView } from "framer-motion";
 import AnimatedProjects from "../components/AnimatedProjects";
-
-import ProjectPages from "../components/ProjectPages";
-import seraph from "../assets/seraph.png";
-import federal from "../assets/federal.png";
-import trinity from "../assets/trinity.png";
+import ParamourPage from "../components/ParamourPage";
+import SeraphPage from "../components/SeraphPage";
+import FederalPage from "../components/FederalPage";
+import TrinityPage from "../components/TrinityPage";
+import { useNavigate } from 'react-router-dom';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -54,6 +53,15 @@ const Landing = () => {
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true });
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageOrder = ["example", "paramour", "seraph", "federal", "trinity"];
+
+  const advance = (index: number) => {
+    setCurrentPage(index);
+  };
+
+  const navigate = useNavigate();
+
   return (
     <>
       {/* MOBILE VIEW */}
@@ -70,7 +78,7 @@ const Landing = () => {
             Paramour is a statement of bold, modern architecture.
           </h1>
           <div>
-            <button className="border flex font-spartan mt-20 font-bold border-black bg-black text-white px-7 py-5">
+            <button onClick={() => navigate('/portfolio')} className="border flex font-spartan mt-20 font-bold border-black bg-black text-white px-7 py-5">
               See our Portfolio {""}
               <img src={arrow} alt="arrow button" className="ml-5" />
             </button>
@@ -105,7 +113,29 @@ const Landing = () => {
             alt="paramour-image"
             className="w-auto block lg:hidden h-auto pt-12"
           />
+
+          {pageOrder[currentPage] === "paramour" && <ParamourPage />}
+          {pageOrder[currentPage] === "seraph" && <SeraphPage/> }
+          {pageOrder[currentPage] === "federal" && <FederalPage /> }
+          {pageOrder[currentPage] === "trinity" && <TrinityPage /> }
+
+          <div className="hidden lg:block absolute bg-white font-spartan text-lg font-bold bottom-0 left-[-24px] ">
+          {[1, 2, 3, 4].map((item, i) => (
+            <button
+              key={i}
+              onClick={() => advance(item)}
+              className={`p-5 w-[80px] ${
+                currentPage === item
+                  ? "bg-black text-white "
+                  : "bg-white text-gray  hover:bg-lightash"
+              }`}
+            >
+              {`0${item}`}
+            </button>
+          ))}
         </div>
+        </div>
+        
       </div>
       <div className="container pt-10 md:pt-32 px-5 md:px-24 lg:pl-48 font-normal text-lg font-spartan relative ">
         <motion.p
@@ -152,7 +182,7 @@ const Landing = () => {
         </div>
       </div>
 
-      <div className="relative mt-48  mb-20">
+      <div className="relative mt-20 mb-20">
         <img
           src={st}
           alt="small-team"
